@@ -6,6 +6,14 @@ CreateNewButton("AssSlapTarget_Button", "ضرب مؤخرة", getgenv().ButtonsCo
 CreateNewButton("HeadFuck_Button", "يمص", getgenv().ButtonsContainer, 8)
 CreateNewButton("SuckingIt_Button", "تمص", getgenv().ButtonsContainer, 10)
 
+AddTagToButton(getgenv()["FuckYourSelf_Button"], "إضافة")
+AddTagToButton(getgenv()["JerkOnTarget_Button"], "إضافة")
+AddTagToButton(getgenv()["BenxTarget_Button"], "إضافة")
+AddTagToButton(getgenv()["BenxTargetV2_Button"], "إضافة")
+AddTagToButton(getgenv()["AssSlapTarget_Button"], "إضافة")
+AddTagToButton(getgenv()["HeadFuck_Button"], "إضافة")
+AddTagToButton(getgenv()["SuckingIt_Button"], "إضافة")
+
 local FuckYourSelf_Button = getgenv().FuckYourSelf_Button
 local JerkOnTarget_Button = getgenv().JerkOnTarget_Button
 local BenxTarget_Button = getgenv().BenxTarget_Button
