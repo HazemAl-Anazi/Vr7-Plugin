@@ -1,7 +1,23 @@
 CreateNewButton("BenxTarget_Button", "بانق V1", getgenv().ButtonsContainer, 5)
+
+local BenxTarget_Button = getgenv().BenxTarget_Button
+local FuckYourSelf_Button = getgenv().FuckYourSelf_Button
+local FocusTarget_Button = getgenv().FocusTarget_Button
+local HeadsitTarget_Button = getgenv().HeadsitTarget_Button
+local BenxTargetV2_Button = getgenv().BenxTargetV2_Button
+local AssSlapTarget_Button = getgenv().AssSlapTarget_Button
+local SuckingIt_Button = getgenv().SuckingIt_Button
+local FlingTarget_Button = getgenv().FlingTarget_Button
+local HeadFuck_Button = getgenv().HeadFuck_Button
+local BackpackTarget_Button = getgenv().BackpackTarget_Button
+local JerkOnTarget_Button = getgenv().JerkOnTarget_Button
+local Players = game:GetService("Players")
+local Plr = Players.LocalPlayer
+
 CreateToggle(BenxTarget_Button)
 
-function BenxTarget_ButtonF()
+local function BenxTarget_ButtonF()
+    local TargetedPlayer = getgenv().TargetedPlayer
     if TargetedPlayer == nil then return end
 
     ChangeToggleColor(BenxTarget_Button)
@@ -10,9 +26,9 @@ function BenxTarget_ButtonF()
         FuckYourSelf_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
         FocusTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
         HeadsitTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
-        getgenv().BenxTargetV2_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
-        getgenv().AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
-        getgenv().SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BenxTargetV2_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
         FlingTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
         HeadFuck_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
         BackpackTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
