@@ -1,4 +1,4 @@
-CreateNewButton("BenxTarget_Button", "بانق V1", 5)
+CreateNewButton("BenxTarget_Button", "بانق V1", getgenv().ButtonsContainer, 5)
 CreateToggle(BenxTarget_Button)
 
 function BenxTarget_ButtonF()
