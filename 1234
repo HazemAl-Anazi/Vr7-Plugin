@@ -1,0 +1,79 @@
+CreateNewButton("BenxTarget_Button", "بانق V1", getgenv().ButtonsContainer, 5)
+
+local BenxTarget_Button = getgenv().BenxTarget_Button
+local Players = game:GetService("Players")
+local Plr = Players.LocalPlayer
+
+CreateToggle(BenxTarget_Button)
+
+local function BenxTarget_ButtonF()
+    local TargetedPlayer = getgenv().TargetedPlayer
+    
+    if TargetedPlayer == nil then 
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7",
+            Text = "الرجاء تحديد لاعب أولاً لكي يعمل الزر!",
+            Duration = 3
+        })
+        return 
+    end
+
+    ChangeToggleColor(BenxTarget_Button)
+    
+    if BenxTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then 
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7",
+            Text = "يمكنك تغير سرعة البانق من الاعدادات في الواجهه",
+            Duration = 3
+        })
+        
+        if game.PlaceId ~= 11379739543 then
+            repeat
+                pcall(function()
+                    local OtherTorso = Players[TargetedPlayer].Character:FindFirstChild("Torso") or Players[TargetedPlayer].Character:FindFirstChild("UpperTorso")
+                    
+                    if GetRoot(Plr).Parent.Humanoid.RigType.Name == "R15" and GetRoot(Plr).Parent.Humanoid.Sit then 
+                        if not CheckAnim("5918726674") then 
+                            PlayAnim(5918726674, 0, tonumber(getgenv().ConfigData.BangSpeed)) 
+                        end 
+                    elseif GetRoot(Plr).Parent.Humanoid.Sit then  
+                        if not CheckAnim("148840371") then 
+                            PlayAnim(148840371, 0, tonumber(getgenv().ConfigData.BangSpeed + 1.7)) 
+                        end 
+                    end
+                    
+                    GetRoot(Plr).Parent.Humanoid.Sit = true 
+                    GetRoot(Plr).CFrame = OtherTorso.CFrame * CFrame.new(0, 0, 1)
+                    GetRoot(Plr).Velocity = Vector3.new(0, 0, 0)
+                end)
+                workspace.FallenPartsDestroyHeight = 0 / 0
+                task.wait()
+            until BenxTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)
+        else
+            repeat
+                pcall(function()
+                    local TargetChar = Players[TargetedPlayer].Character
+                    if TargetChar and GetRoot(Plr) then
+                        local Torso = TargetChar:FindFirstChild("Torso") or TargetChar:FindFirstChild("UpperTorso")
+                        if Torso then
+                            local Root = GetRoot(Plr)
+                            Root.Velocity = Vector3.new()
+                            local Offset = math.sin(tick() * 20) * 0.6
+                            Root.CFrame = Torso.CFrame * CFrame.new(0, 0, 2 + Offset)
+                        end
+                    end
+                end)
+                workspace.FallenPartsDestroyHeight = 0 / 0
+                task.wait()
+            until BenxTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)
+        end
+        
+        workspace.FallenPartsDestroyHeight = -500
+        StopAnim()
+        GetRoot(Plr).Parent.Humanoid.Sit = false
+    end
+end
+
+if BenxTarget_Button then
+    BenxTarget_Button.MouseButton1Click:Connect(BenxTarget_ButtonF)
+end
