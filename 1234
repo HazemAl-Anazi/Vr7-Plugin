@@ -1,29 +1,113 @@
+CreateNewButton("FuckYourSelf_Button", "بانق عكسي", getgenv().ButtonsContainer, 3)
+CreateNewButton("JerkOnTarget_Button", "سوها عليه", getgenv().ButtonsContainer, 4)
 CreateNewButton("BenxTarget_Button", "بانق V1", getgenv().ButtonsContainer, 5)
+CreateNewButton("BenxTargetV2_Button", "بانق V2", getgenv().ButtonsContainer, 6)
 
+local FuckYourSelf_Button = getgenv().FuckYourSelf_Button
+local JerkOnTarget_Button = getgenv().JerkOnTarget_Button
 local BenxTarget_Button = getgenv().BenxTarget_Button
+local BenxTargetV2_Button = getgenv().BenxTargetV2_Button
+local AssSlapTarget_Button = getgenv().AssSlapTarget_Button
+local HeadFuck_Button = getgenv().HeadFuck_Button
+local SuckingIt_Button = getgenv().SuckingIt_Button
+local FocusTarget_Button = getgenv().FocusTarget_Button
+local HeadsitTarget_Button = getgenv().HeadsitTarget_Button
+local FlingTarget_Button = getgenv().FlingTarget_Button
+local BackpackTarget_Button = getgenv().BackpackTarget_Button
+
 local Players = game:GetService("Players")
 local Plr = Players.LocalPlayer
 
+CreateToggle(FuckYourSelf_Button)
+CreateToggle(JerkOnTarget_Button)
 CreateToggle(BenxTarget_Button)
+CreateToggle(BenxTargetV2_Button)
 
-local function BenxTarget_ButtonF()
-    local TargetedPlayer = getgenv().TargetedPlayer
-    
-    if TargetedPlayer == nil then 
+local function FuckYourSelf_ButtonF()
+    if TargetedPlayer == nil or TargetedPlayer == "" then
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "System VR7",
             Text = "الرجاء تحديد لاعب أولاً لكي يعمل الزر!",
             Duration = 3
         })
-        return 
+        return
+    end
+
+    ChangeToggleColor(FuckYourSelf_Button)
+    
+    if FuckYourSelf_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
+        if game.PlaceId == 11379739543 then 
+            SendNotify("V R 7", "هاذ الماب محمي من هذه الاوامر", 3) 
+            FuckYourSelf_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0) 
+            return 
+        end
+        
+        for _, Track in pairs(Plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+            Track:Stop()
+        end
+        
+        FocusTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        FlingTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BenxTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BenxTargetV2_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadsitTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadFuck_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BackpackTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        JerkOnTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+
+        local PositionValue = -2
+        local Increment = 0.1
+        local Hight = -1
+        
+        repeat
+            pcall(function()
+                local OtherTorso = Players[TargetedPlayer].Character:FindFirstChild("Torso") or Players[TargetedPlayer].Character:FindFirstChild("UpperTorso")
+                if OtherTorso.Name == "Torso" then Hight = -0.75 end
+                
+                Plr.Character.Humanoid.Sit = true
+                GetRoot(Plr).CFrame = OtherTorso.CFrame * CFrame.new(0, Hight, PositionValue) * CFrame.Angles(math.rad(270), 0, 0)
+                GetRoot(Plr).Velocity = Vector3.new(0, 0, 0)
+                PositionValue = PositionValue + Increment
+                
+                if PositionValue >= -1 or PositionValue <= -2 then
+                    Increment = -Increment
+                end
+            end)
+            task.wait()
+        until FuckYourSelf_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)            
+        GetRoot(Plr).Parent.Humanoid.Sit = false
+    end
+end
+FuckYourSelf_Button.MouseButton1Click:Connect(FuckYourSelf_ButtonF)
+
+local function BenxTarget_ButtonF()
+    if TargetedPlayer == nil or TargetedPlayer == "" then
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7",
+            Text = "الرجاء تحديد لاعب أولاً لكي يعمل الزر!",
+            Duration = 3
+        })
+        return
     end
 
     ChangeToggleColor(BenxTarget_Button)
-    
     if BenxTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then 
+        FuckYourSelf_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        FocusTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadsitTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BenxTargetV2_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        FlingTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadFuck_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BackpackTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        JerkOnTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        
         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "System VR7",
-            Text = "يمكنك تغير سرعة البانق من الاعدادات في الواجهه",
+            Title = "System VR7", 
+            Text = "يمكنك تغير سرعة البانق من الاعدادات في الواجهه", 
             Duration = 3
         })
         
@@ -31,17 +115,11 @@ local function BenxTarget_ButtonF()
             repeat
                 pcall(function()
                     local OtherTorso = Players[TargetedPlayer].Character:FindFirstChild("Torso") or Players[TargetedPlayer].Character:FindFirstChild("UpperTorso")
-                    
                     if GetRoot(Plr).Parent.Humanoid.RigType.Name == "R15" and GetRoot(Plr).Parent.Humanoid.Sit then 
-                        if not CheckAnim("5918726674") then 
-                            PlayAnim(5918726674, 0, tonumber(getgenv().ConfigData.BangSpeed)) 
-                        end 
+                        if not CheckAnim("5918726674") then PlayAnim(5918726674, 0, tonumber(getgenv().ConfigData.BangSpeed)) end 
                     elseif GetRoot(Plr).Parent.Humanoid.Sit then  
-                        if not CheckAnim("148840371") then 
-                            PlayAnim(148840371, 0, tonumber(getgenv().ConfigData.BangSpeed + 1.7)) 
-                        end 
+                        if not CheckAnim("148840371") then PlayAnim(148840371, 0, tonumber(getgenv().ConfigData.BangSpeed + 1.7)) end 
                     end
-                    
                     GetRoot(Plr).Parent.Humanoid.Sit = true 
                     GetRoot(Plr).CFrame = OtherTorso.CFrame * CFrame.new(0, 0, 1)
                     GetRoot(Plr).Velocity = Vector3.new(0, 0, 0)
@@ -67,13 +145,136 @@ local function BenxTarget_ButtonF()
                 task.wait()
             until BenxTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)
         end
-        
         workspace.FallenPartsDestroyHeight = -500
         StopAnim()
         GetRoot(Plr).Parent.Humanoid.Sit = false
     end
 end
+BenxTarget_Button.MouseButton1Click:Connect(BenxTarget_ButtonF)
 
-if BenxTarget_Button then
-    BenxTarget_Button.MouseButton1Click:Connect(BenxTarget_ButtonF)
+local function BenxTargetV2_ButtonF()
+    if TargetedPlayer == nil or TargetedPlayer == "" then
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7",
+            Text = "الرجاء تحديد لاعب أولاً لكي يعمل الزر!",
+            Duration = 3
+        })
+        return
+    end
+
+    ChangeToggleColor(BenxTargetV2_Button)
+    if BenxTargetV2_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then 
+        FuckYourSelf_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        FocusTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadsitTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BenxTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        FlingTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        HeadFuck_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        BackpackTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+        JerkOnTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7", 
+            Text = "يمكنك تغير سرعة البانق من الاعدادات في الواجهه", 
+            Duration = 3
+        })
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7", 
+            Text = "هذا النوع الثاني من البانق اذا كان يوجد حمايه في الماب", 
+            Duration = 7
+        })
+        
+        repeat
+            pcall(function()
+                local TargetChar = Players[TargetedPlayer].Character
+                local Root = GetRoot(Plr)
+                local Speed = tonumber(getgenv().ConfigData.BangSpeed) or 2
+                
+                if TargetChar and Root then
+                    local Torso = TargetChar:FindFirstChild("Torso") or TargetChar:FindFirstChild("UpperTorso")
+                    if Torso then
+                        local Offset = math.sin(tick() * Speed * 8) * 1.2
+                        Root.Parent.Humanoid.Sit = false
+                        Root.Velocity = Vector3.new()
+                        Root.CFrame = Torso.CFrame * CFrame.new(0, 0, 2 + Offset)
+                    end
+                end
+            end)
+            Plr.Character.Humanoid.PlatformStand = true
+            workspace.FallenPartsDestroyHeight = 0 / 0
+            task.wait()
+        until BenxTargetV2_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)
+        Plr.Character.Humanoid.PlatformStand = false
+        workspace.FallenPartsDestroyHeight = -500
+    end
 end
+BenxTargetV2_Button.MouseButton1Click:Connect(BenxTargetV2_ButtonF)
+
+local function JerkOnTarget_ButtonF()
+    if TargetedPlayer == nil or TargetedPlayer == "" then
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "System VR7",
+            Text = "الرجاء تحديد لاعب أولاً لكي يعمل الزر!",
+            Duration = 3
+        })
+        return
+    end
+
+    ChangeToggleColor(JerkOnTarget_Button)
+
+    FuckYourSelf_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    FocusTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    FlingTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    BenxTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    BenxTargetV2_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    HeadsitTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    AssSlapTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    SuckingIt_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    HeadFuck_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+    BackpackTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0)
+
+    if JerkOnTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
+        if game.PlaceId == 11379739543 then 
+            SendNotify("V R 7", "هاذ الماب محمي من هذه الاوامر", 3) 
+            JerkOnTarget_Button.Ticket_Asset.ImageColor3 = Color3.fromRGB(255, 0, 0) 
+            return 
+        end
+        
+        task.spawn(function()
+            workspace.FallenPartsDestroyHeight = 0 / 0
+            while JerkOnTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) do 
+                pcall(function()
+                    if Plr.Character.Humanoid.Health > 0 then
+                        if Plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+                            PlayAnim(72042024, 0.675, 1, true)
+                            task.wait(0.4)
+                        elseif Plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                            PlayAnim(698251653, 0.6, 0.4, true)
+                            task.wait(0.16)
+                        end
+                    end
+                end)
+                task.wait()
+            end
+            StopAnim()
+        end)
+        
+        repeat
+            pcall(function()
+                if Plr.Character.Humanoid.Health > 0 then
+                    local Root = GetRoot(Players[TargetedPlayer])
+                    Plr.Character.Humanoid:ChangeState("GettingUp")
+                    if not Plr.Character.Humanoid.Sit then Plr.Character.Humanoid.Sit = true end 
+                    GetRoot(Plr).CFrame = Root.CFrame * CFrame.new(0, 1, -3) * CFrame.Angles(0, math.pi, 0)
+                    GetRoot(Plr).Velocity = Vector3.new(0, 0, 0)
+                end
+            end)
+            task.wait()
+        until JerkOnTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255, 0, 0)
+        workspace.FallenPartsDestroyHeight = -500
+        Plr.Character.Humanoid.Sit = false
+    end
+end
+JerkOnTarget_Button.MouseButton1Click:Connect(JerkOnTarget_ButtonF)
